@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h1 style="color:darkslateblue"> Departamentos dentro de la ruta en Uruguay </h1>
+    <h2>Añadir Departamento</h2><a href="/products/create-product/" class="btn btn-primary">Añadir</a>
+{% endblock %}
+
+{% block content %}
+    
+    {% for product in products %}
+
+    <div class="card" style="width: 18rem;">
+        <img src="https://proyectomapamundi.com/wp-content/uploads/2020/02/Mapa-Pol%C3%ADtico-Uruguay.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">Se encuentra a {{product.price}} kilometros de la capital</p>
+            {% if product.stock == True %}
+            <p> En el departamento {{product.name}} hay panaderias asociadas </p>
+            {% else %}
+            <p>En el departamento {{product.name}} no se encontraron panaderias asociadas</p>
+            {% endif %}
+            <a href="#" class="btn btn-primary">Entrar</a>
+        </div>
+        </div>
+        
+    {% endfor %}
+
+</body>
+</html>
+
+{% endblock %}

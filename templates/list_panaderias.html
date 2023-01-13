@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h1 style="color:darkslateblue"> Panaderias disponibles </h1>
+    <h2>Añadir Panaderia</h2><a href="/products/create-panaderia/" class="btn btn-primary">Añadir</a>
+{% endblock %}
+
+{% block content %}
+    
+    {% for panaderia in panaderias %}
+
+    <div class="card" style="width: 18rem;">
+        <img src="https://i.pinimg.com/originals/12/89/59/1289593f0972dd15ad7b25bdd9136a30.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{panaderia.name}}</h5>
+            <p class="card-text"> Su horario es de lunes a viernes de 8am hasta las{{panaderia.horario}}pm</p>
+            {% if panaderia.stock == True %}
+            <p> La panaderia {{panaderia.name}} está disponible </p>
+            {% else %}
+            <p>La panaderia {{panaderia.name}} no está disponible</p>
+            {% endif %}
+            <a href="#" class="btn btn-primary">Comprar</a>
+        </div>
+        </div>
+        
+    {% endfor %}
+
+</body>
+</html>
+
+{% endblock %}
