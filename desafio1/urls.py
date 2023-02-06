@@ -15,15 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from desafio1.view import saludo_inicial, vista_con_template, saludo_template, index
-
+from django.conf.urls.static import static
+from desafio1.view import saludo_inicial, vista_con_template, index
+from desafio1.settings import MEDIA_ROOT, MEDIA_URL
 
 urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('saludo-inicial/', saludo_inicial),
     path('vista-con-template/', vista_con_template),
-    path('saludo-template/', saludo_template),
 
-    path('products/', include('products.urls')),      
-]
+    path('products/', include('products.urls')),
+    path('providers/', include('providers.urls')),
+    path('users/', include('users.urls')),       
+] + static(MEDIA_URL, document_root = MEDIA_ROOT)

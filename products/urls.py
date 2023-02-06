@@ -1,14 +1,17 @@
 from django.urls import path
-from products.views import create_product, list_products, list_categories, create_categorie, create_panaderia, list_panaderias
+from products.views import PanaderiaListView, PanaderiaCreateView, PanaderiaUpdateView, PanaderiaDeleteView, ProductsListView, ProductsCreateView, ProductsUpdateView, ProductsDeleteView, about_me
 
 urlpatterns = [
-    path('create-product/', create_product),
-    path('list-products/', list_products),
+    path('list-panaderias/', PanaderiaListView.as_view(), name='panaderias_list'),
+    path('create-panaderia/', PanaderiaCreateView.as_view(), name='create_panaderia'),
+    path('update_panaderia/<int:pk>/', PanaderiaUpdateView.as_view(), name='panaderia_update'),
+    path('delete_panaderia/<int:pk>/', PanaderiaDeleteView.as_view(), name='panaderia_delete'),
 
-    path('create-categorie/', create_categorie),
-    path('list-categories/', list_categories),
+    path('list-products/', ProductsListView.as_view(), name='products_list'),
+    path('create-product/', ProductsCreateView.as_view(), name='create_product'),
+    path('update_product/<int:pk>/', ProductsUpdateView.as_view(), name='product_update'),
+    path('delete_product/<int:pk>/', ProductsDeleteView.as_view(), name='product_delete'),
 
-    path('create-panaderia/', create_panaderia),
-    path('list-panaderias/', list_panaderias), 
+    path('about/', about_me, name='about_me'),
 
 ]

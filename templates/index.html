@@ -2,13 +2,19 @@
 
 {% block content %}
 
+{% if message %}
+    <h2>{{message}}</h2>
+{% endif %}
+
 <div class="card bg-dark text-white">
-    <img src="https://i.pinimg.com/originals/12/89/59/1289593f0972dd15ad7b25bdd9136a30.jpg" class="card-img" alt="...">
+    <img src="https://static.vecteezy.com/system/resources/previews/000/165/158/original/free-breads-vectors.jpg" class="card-img" alt="...">
     <div class="card-img-overlay">
-        <h1 class="card-title" style='color: greenyellow'>Bienvenidos a la ruta del bizcocho uruguayo </h1>
-        <p class="card-text"></p>
-        <p><h2 class="card-text" style='color:rgb(0, 255, 110)'>Estás en el lugar correcto si gustas de probar los mejores bizcochos mientras turisteas
-            por uruguay </p>
+
+        <blockquote class="blockquote text-center">
+            <p> <h1 class="mb-0" style='color: rgb(43, 2, 206)'>Bienvenidos a la ruta del bizcocho uruguayo</h1></p>
+            <footer  class="mb-0" style='color:rgb(58, 2, 223)'>Estás en el lugar correcto si gustas de probar los mejores bizcochos mientras turisteas
+                por uruguay </footer>
+        </blockquote>
     </div>
 </div>
 

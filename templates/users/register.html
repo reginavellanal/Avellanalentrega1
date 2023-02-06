@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <h2 style="color:cornflowerblue">Signup</h2>
+    <h3 style="color:rgb(12, 91, 238)">Ingresa tus datos para registrarte</h3>
+{% endblock %}
+
+
+
+{% block content %}
+
+{% if form %}
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    <table>
+    {{form.as_table}}
+    </table>
+
+
+    <input type="submit" value="Registrar">
+</form>
+
+{% endif %}
+
+{% if errors %}
+    {{errors}}
+{% endif %}
+
+{% endblock %}

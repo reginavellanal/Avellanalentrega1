@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <h2 style="color:cornflowerblue">Login</h2>
+    <h3 style="color:rgb(12, 91, 238)">Ingresa tus datos para ingresar</h3>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+{% if form %}
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    <table>
+    {{form.as_table}}
+    </table>
+
+    {% if errors %}
+        <p style="color:red;">{{errors}}</p>
+    {% endif %}
+
+    <input type="submit" value="Ingresar">
+</form>
+
+{% endif %}
+
+
+{% endblock %}

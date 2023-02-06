@@ -25,11 +25,36 @@
                         <a class="nav-link" href="/products/list-products/">Departamentos </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/products/list-categories/">Regiones</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/products/list-panaderias/">Panaderias</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/providers/list_providers/">Proveedores</a>
+                    </li>
+                    <li class="nav-item" style="margin-right:400px;">
+                        <a class="nav-link" href="{% url 'about_me' %}">Sobre mi</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/logout/">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/update/">{{request.user.username}}</a>
+                    </li>
+                        {% if request.user.profile.profile_image.url != '' %}
+                            <a href="{% url 'update_user_profile' %}">
+                                <img src="{{request.user.profile.profile_image.url}}" alt="profile_image" width="50px" height="50px" style="border-radius: 25px;">
+                            </a>
+                        {% endif %}
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/login/">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/signup/">Signup</a>
+                    </li>
+                    {% endif %}
+                    
+
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="/products/list-products/" method="GET">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">

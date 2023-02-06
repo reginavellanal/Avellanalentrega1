@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h1 style="color:rgb(51, 69, 224)"> Listado de proveedores </h1>
+{% endblock %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %} 
+            <h3>Añadir nuevo proveedor</h3><a href="/providers/create_provider/" class="btn btn-primary">Añadir</a>
+        {% endif %}
+    {% endif %}
+    
+    {% for provider in object_list %}
+
+    <div class="card" style="width: 18rem;">
+        <img src="https://isodoc.co/dashboard/wp-content/uploads/2018/08/iconos-isodoc-06.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{provider.name}}</h5>
+            <p class="card-text">Direccion: {{provider.adress}}</p>
+            <p>Telefono: {{provider.phone_number}}</p>
+            <a href="/providers/update_provider/{{provider.id}}" class="btn btn-primary">Actualizar</a>
+            <a href="/providers/delete_provider/{{provider.id}}" class="btn btn-danger">Borrar</a>        
+        </div>
+        </div>
+        
+    {% endfor %}
+
+</body>
+</html>
+
+{% endblock %}

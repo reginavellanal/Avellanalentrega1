@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h1 style="color:rgb(236, 28, 28)"> Confirmacion de borrado </h1>
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>Panaderia a borrar {{object.name}}</h2>
+    <p>¿Desea confirmar el borrado?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Borrar">
+    </form>
+
+{% endblock %}

@@ -10,9 +10,3 @@ def saludo_inicial(request):
 def vista_con_template(request):
     return render(request, 'template.html', context={})
 
-def saludo_template(request):
-    nombre = 'Regina'
-    context = {
-        'nombre': nombre,
-    }
-    return render(request, 'saludo.html', context=context)

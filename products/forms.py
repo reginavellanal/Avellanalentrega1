@@ -2,7 +2,7 @@ from django import forms
 
 class ProductsForm(forms.Form):
     name = forms.CharField(max_length=100)
-    price = forms.FloatField()
+    distance = forms.FloatField()
     stock = forms.BooleanField(required=False)
 
 class CategorieForm(forms.Form):
